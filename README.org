@@ -21,4 +21,4 @@ It drops FPS in Valve's Deadlock from 100, to 80 average, then tanks it to 5 FPS
 This program is built for linux, with glibc.
 To tune the program to be a little more exact, change the ARRAY_MB to the L3 cache size you have
 
-build core.c with gcc -O0 src/core.c -o worst_practices.out
+build core.c with =gcc -O0 src/core.c -o worst_practices.out=
