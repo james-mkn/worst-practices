@@ -1,0 +1,24 @@
+* Worst Practice
+This is a toy program designed to subtly destroy performance of other programs running around it.
+
+This is acheived via:
+- Constantly moving between cache lines via two different arrays per thread, on a random stride
+- Periodically allocating a circular linked list to fragment memory
+- Chasing the pointers around the linked list
+- Writing memory to a shared array with every core
+- Forcing unfavourable branch predictions
+- Occasional usage spikes
+
+** Disclaimer
+This is a program written for purely educational purposes, to demonstrate a program written with the absolute worst programming practices and the effects it might have on overall performance.
+Please do not run this on anything that you do not own.
+
+** Benchmarks
+On my system this has a branch misprediction around 10%, and a cache miss rate around 50%, sometimes jumping up to 80%
+It drops FPS in Valve's Deadlock from 100, to 80 average, then tanks it to 5 FPS during spikes.
+
+** Compatibility
+This program is built for linux, with glibc.
+To tune the program to be a little more exact, change the ARRAY_MB to the L3 cache size you have
+
+build core.c with gcc -O0 src/core.c -o worst_practices.out
