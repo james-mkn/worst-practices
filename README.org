@@ -1,7 +1,7 @@
 * Worst Practice
-This is a toy program designed to subtly destroy performance of other programs running around it.
+This is a toy program designed to subtly destroy the performance of other programs running around it.
 
-This is acheived via:
+This is achieved via:
 - Constantly moving between cache lines via two different arrays per thread, on a random stride
 - Periodically allocating a circular linked list to fragment memory
 - Chasing the pointers around the linked list
